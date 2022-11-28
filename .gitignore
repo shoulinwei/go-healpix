@@ -1,0 +1,19 @@
+# IDE Project files
+**/.idea/
+**/.vscode/
+**/*.swp
+
+**/go.sum
+# log
+*.log
+
+# MacOS folder attributes files
+**/*.DS_Store
+
+**/build/
+**/dist/
+
+**/*.dylib
+**/*.o
+**/*.so
+test
