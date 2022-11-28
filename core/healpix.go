@@ -13,10 +13,6 @@ import (
 	"math"
 )
 
-const pi = 3.1415926535897932384626
-const RadPerDeg = 0.017453292519943295
-const DEG_PER_RAD = 57.295779513082323
-
 // service 服务
 type healpix struct {
 	nSide int32
@@ -40,6 +36,10 @@ func (s *healpix) HealpixRangeConeSearch(ra float64, dec float64, radius float64
 		hpixIds[i] = hpxid
 	}
 	return hpixIds
+}
+func (s *healpix) RaDecDegToHealpix(ra float64, dec float64, nSide int32) int32 {
+	var hpixId = C.radec_to_healpixl(C.double(ra), C.double(dec), C.int(nSide))
+	return int32(hpixId)
 }
 
 func NewHealpix(nSide int32, order string) *healpix {

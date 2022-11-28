@@ -16,5 +16,8 @@ func main() {
 	for _, v := range hpxIds {
 		fmt.Printf("%d,", v)
 	}
+	fmt.Printf("\n")
 
+	hpxId := hp.RaDecDegToHealpix(192.0, 19, 32)
+	fmt.Printf("%d\n", hpxId)
 }
