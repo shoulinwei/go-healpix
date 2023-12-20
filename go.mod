@@ -1,3 +1,3 @@
 module github.com/shoulinwei/go-healpix
 
-go 1.16
+go 1.21.3
