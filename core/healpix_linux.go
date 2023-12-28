@@ -22,8 +22,13 @@ func (s *healpix) HealpixRangeConeSearch(ra float64, dec float64, radius float64
 
 	hpixIds = make([]int64, iCount)
 	for i = 0; i < int32(iCount); i++ {
-		hpxid := int64(C.healpixl_xy_to_nested(c_hpixIds[i], C.int(nSide)))
-		hpixIds[i] = hpxid
+		if s.order == "ring" {
+			hpxid := int64(C.healpixl_xy_to_ring(c_hpixIds[i], C.int(nSide)))
+			hpixIds[i] = hpxid
+		} else {
+			hpxid := int64(C.healpixl_xy_to_nested(c_hpixIds[i], C.int(nSide)))
+			hpixIds[i] = hpxid
+		}
 	}
 	return hpixIds
 }
