@@ -6,6 +6,15 @@ go-healpix is a Go wrapper around HEALPix C library
 
 # Install
     go get github.com/shoulinwei/go-healpix
+	git clone https://github.com/shoulinwei/go-healpix.git
+	cd go-healpix
+
+	//at MAC
+	make dylib
+	//at linux
+	make so
+
+	copy libhpix.dylib or libhpix.so to your project root
 
 # Usage
 ```go
