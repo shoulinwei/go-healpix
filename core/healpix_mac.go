@@ -11,6 +11,24 @@ package core
 */
 import "C"
 
+func (s *healpix) XyToOrder(xy int64) int64 {
+	var hpixId int64
+	if s.order == "ring" {
+		hpixId = int64(C.healpixl_xy_to_ring(C.longlong(xy), C.int(s.nSide)))
+	} else {
+		hpixId = int64(C.healpixl_xy_to_nested(C.longlong(xy), C.int(s.nSide)))
+	}
+	return hpixId
+}
+
+func (s *healpix) RingToXy(ring_index int64) int64 {
+	return int64(C.healpixl_ring_to_xy(C.longlong(ring_index), C.int(s.nSide)))
+}
+
+func (s *healpix) NestedToXY(nested_index int64) int64 {
+	return int64(C.healpixl_nested_to_xy(C.longlong(nested_index), C.int(s.nSide)))
+}
+
 func (s *healpix) HealpixRangeConeSearch(ra float64, dec float64, radius float64, nSide int32, hpixIds []int64) []int64 {
 	//var c_hpixIds = [256]C.longlong{} for darwin
 	//var c_hpixIds = [256]C.long{} for linux
