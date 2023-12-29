@@ -7,7 +7,7 @@ go-healpix is a Go wrapper around HEALPix C library
 # Install
     go get github.com/shoulinwei/go-healpix
 	git clone https://github.com/shoulinwei/go-healpix.git
-	cd go-healpix
+	cd go-healpix/healpixlib
 
 	//at MAC
 	make dylib
